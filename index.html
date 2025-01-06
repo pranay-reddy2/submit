@@ -28,7 +28,7 @@
         background-color: black;
     }
     .main{
-        background-image:url('background.png');
+        background-image:url('background.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
         height: 700px;
@@ -114,7 +114,16 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-        .mcc{
+        .dropdown-menu2 {
+            display: none;
+            margin-top: 20px;
+        }
+        .dropdown-menu2 select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .mcc,.blockwars{
             display: flex;
             justify-content: center;
         }
@@ -159,7 +168,7 @@
     <h1 class="start">Discover our games</h1>
     <div class="Game">
         <div class="minecraft">
-            <img class="img1" src="game img 1.png">
+            <img class="img1" src="game img 1.jpeg">
             <h2>Minecraft</h2>
             <p>Sandbox Survival, Adventure<br>
             Single-player + Multiplayer</p>
@@ -170,7 +179,7 @@
     
         </div>
         <div class="dungeon">
-            <img class="img2" src="img game 2.png">
+            <img class="img2" src="img game 2.jpeg">
             <h2>Minecraft Dungeons</h2>
             <p>Dungeon Crawl, Action RPG<br>
                 Single-player + Multiplayer</p>
@@ -181,7 +190,7 @@
         
         </div>
         <div class="legend">
-            <img class="img3" src="img game 3.png">
+            <img class="img3" src="img game 3.jpeg">
             <h2>Minecraft Legends</h2>
             <p>Action RPG, Strategy<br>
                 Single-player + Multiplayer</p>
@@ -194,7 +203,7 @@
     <div class="Tournament">
         <h1>Tournaments</h1>
         <div class="t1">
-            <img src="tour1.png">
+            <img src="tour1.jpeg">
             <p class="de">MC Championship (MCC) is a Minecraft tournament organised by YouTuber Scott Major (known online as Smajor1995 or Dangthatsalongname) and Minecraft collective Noxcrew. Ten teams of four compete in a series of Minecraft minigames. The tournament began its first season on November 17, 2019. Its fourth and current season began on May 4, 2024</p>
         </div>
         <div class="mcc">
@@ -224,11 +233,32 @@
         </div>
         </div>
         <div class="t2">
-            <img src="t2.png">
+            <img src="t2.jpeg">
             <p class="de">Block Wars is a monthly Minecraft event for friends and creators, focused on creating highly engaging gameplay run by Tommy333 & organized by Wolfeei.It is 40 player event, with 8 team.8 games are played and top 2 team will duel to win the tournament</p>
         </div>  
+        <div class="blockwars">
+            <div class="hidden-buttons" id="tournament2">
+                <button id="next-tournament2">Next Tournament</button>
+                <button id="tournament-games2">Tournament Games</button>
+                <div class="dropdown-menu2">
+                    <select id="games-dropdown2">
+                        <option value="">Select a Game</option>
+                        <option value="https://block-wars.fandom.com/wiki/Battle">Battle</option>
+                        <option value="https://block-wars.fandom.com/wiki/Blitz_Hunt">Blitz Hunt</option>
+                        <option value="https://block-wars.fandom.com/wiki/Construction">Construction</option>
+                        <option value="https://block-wars.fandom.com/wiki/Extraction">Extraction</option>
+                        <option value="https://block-wars.fandom.com/wiki/Order_Up">Order Up</option>
+                        <option value="https://block-wars.fandom.com/wiki/Party">Party</option>
+                        <option value="https://block-wars.fandom.com/wiki/Race">Race</option>
+                        <option value="https://block-wars.fandom.com/wiki/Overspleef">Spleef</option>
+                        <option value="https://block-wars.fandom.com/wiki/Trailblazers">Trailblazers</option>
+                        <option value="https://block-wars.fandom.com/wiki/Turf_Wars">Truf Wars</option>
+                    </select>
+            </div>
+            </div>
+        </div>
         <div class="t3">
-            <img src="tour3.png">
+            <img src="tour3.jpeg">
             <p class="de">Minecraft Monday was a popular Minecraft event hosted by Keemstar for popular Minecraft streamers every Monday. The event split the players into teams of two and originally featured rounds of Minecraft Hunger Games before adopting other games, such as spleef, in later weeks. Members of the winning team split prize money, which was $10,000 in the first two weeks and $5,000 in subsequent weeks</p>
         </div>
     </div>
@@ -259,7 +289,7 @@
     const buttonContainer = document.getElementById("button-container");
     const buttonContainer2 = document.getElementById("button-container2");
     const buttonContainer3 = document.getElementById("button-container3");
-    const tournament1= document.getElementById("tournament1");
+    
 
 
     minecraft.addEventListener('click', () => {
@@ -267,12 +297,10 @@
             });
 
             function knowMore() {
-                alert("Learn more about Minecraft at the official site!");
                 window.location.href = "https://www.minecraft.net/en-us/about-minecraft";
             }
 
             function buyGame() {
-                alert("Redirecting to the official Minecraft store...");
                 window.location.href = "https://www.minecraft.net/en-us/store/minecraft-deluxe-collection-pc";
             }
 
@@ -281,12 +309,10 @@
             });
 
             function knowMored() {
-                alert("Learn more about Minecraft at the official site!");
                 window.location.href = "https://www.minecraft.net/en-us/about-dungeons";
             }
 
             function buyGamed() {
-                alert("Redirecting to the official Minecraft store...");
                 window.location.href = "https://www.minecraft.net/en-us/store/minecraft-dungeons-ultimate-edition";
             }
 
@@ -296,12 +322,10 @@
             });
 
             function knowMorel() {
-                alert("Learn more about Minecraft at the official site!");
                 window.location.href = "https://www.minecraft.net/en-us/about-legend";
             }
 
             function buyGamel() {
-                alert("Redirecting to the official Minecraft store...");
                 window.location.href = "https://www.minecraft.net/en-us/store/legends-deluxe-edition";
             }
 
@@ -312,12 +336,19 @@
         const tournamentGames = document.getElementById("tournament-games");
         const dropdownMenu = document.querySelector(".dropdown-menu");
         const gamesDropdown = document.getElementById("games-dropdown");
+        const tournament1= document.getElementById("tournament1");
+        const nextTournament2 = document.getElementById("next-tournament2");
+        const tournamentGames2 = document.getElementById("tournament-games2");
+        const dropdownMenu2 = document.querySelector(".dropdown-menu2");
+        const gamesDropdown2 = document.getElementById("games-dropdown2");
+        const tournament2= document.getElementById("tournament2");
     tour1.addEventListener('click',  () => {
         tournament1.style.display = tournament1.style.display === "none" ? "block" : "none";
         });
 
         nextTournament.addEventListener("click", () => {
-            window.location.href = "https://mcc.live/";
+            window.location.href="https://mcc.live/";
+
         });
         tournamentGames.addEventListener("click", () => {
             dropdownMenu.style.display = "block";
@@ -330,12 +361,28 @@
             }
         });
 
-    tour2.addEventListener('click', function() {
-        window.location.href = 'https://blockwars.games/'; 
-    });
+    tour2.addEventListener('click',   () => {
+        tournament2.style.display = tournament2.style.display === "none" ? "block" : "none";
+        });
+
+        nextTournament2.addEventListener("click", () => {
+            window.location.href="https://blockwars.games/";
+        });
+        tournamentGames2.addEventListener("click", () => {
+            dropdownMenu2.style.display = "block";
+        });
+
+        gamesDropdown2.addEventListener("change", (event) => {
+            const selectedGameUrl = event.target.value;
+            if (selectedGameUrl) {
+                window.location.href = selectedGameUrl;
+            }
+        });
+
 
     tour3.addEventListener('click', function() {
-        window.location.href = 'https://minecraft-monday.fandom.com/wiki/Minecraft_Monday_Wiki';
+        alert("the tournament is not running anymore, You can know its history")
+        window.location.href = 'http://minecraft-monday.fandom.com/wiki/Minecraft_Monday_Wiki';
     });
 
 
